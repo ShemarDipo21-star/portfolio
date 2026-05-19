@@ -14,11 +14,19 @@ const barIO = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.skill-fill').forEach(b => barIO.observe(b));
 
-// Nav active — highlight the link matching the current page
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a').forEach(a => {
-  if (a.getAttribute('href') === currentPage) a.classList.add('active');
-});
+// Nav active — highlight the link matching the visible section
+const sections = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+const sectionIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navAs.forEach(a => a.classList.remove('active'));
+      const match = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => sectionIO.observe(s));
 
 // Hamburger menu
 const burger = document.getElementById('navBurger');
