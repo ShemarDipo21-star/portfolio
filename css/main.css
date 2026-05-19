@@ -32,7 +32,7 @@ nav {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--light);
-  min-height: 60px;
+  height: 60px;
 }
 .nav-name {
   font-family: var(--serif);
@@ -41,6 +41,11 @@ nav {
   color: var(--black);
   letter-spacing: .02em;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
 }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -137,6 +142,8 @@ footer {
   border: none;
   cursor: pointer;
   padding: 4px;
+  flex-shrink: 0;
+  margin-left: 1rem;
 }
 .nav-burger span {
   display: block;
@@ -171,7 +178,7 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav { padding: 1.2rem 2rem; }
+  nav { padding: 1rem 2rem; height: 60px; }
   .nav-links { display: none; }
   section { padding: 4rem 2rem; }
   h2 { margin-bottom: 2rem; }
@@ -179,11 +186,12 @@ footer {
 
 @media (max-width: 600px) {
   nav {
-    padding: 1rem 1.2rem;
+    padding: 0 1.2rem;
     padding-left: max(1.2rem, env(safe-area-inset-left));
     padding-right: max(1.2rem, env(safe-area-inset-right));
+    height: 60px;
   }
-  .nav-name { font-size: .95rem; }
+  .nav-name { font-size: .88rem; }
   section { padding: 3rem 1.5rem; }
   h2 { font-size: 1.8rem; margin-bottom: 2rem; }
   .btn { width: 100%; text-align: center; }
