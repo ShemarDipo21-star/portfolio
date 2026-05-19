@@ -1,0 +1,90 @@
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 7rem 4rem 4rem;
+  gap: 4rem;
+}
+.hero-text { max-width: 480px; }
+.hero-eyebrow {
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--mid);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .6s .2s forwards;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--black);
+  letter-spacing: -.01em;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .7s .35s forwards;
+}
+.hero-desc {
+  font-size: .95rem;
+  color: var(--dark);
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp .7s .5s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .7s .65s forwards;
+}
+.hero-photo {
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0;
+  animation: fadeIn .9s .4s forwards;
+}
+.photo-frame {
+  position: relative;
+  width: 380px; height: 460px;
+}
+.photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(15%);
+}
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 12px -12px -12px 12px;
+  border: 1px solid var(--light);
+  z-index: -1;
+}
+
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; gap: 3rem; }
+  .hero-photo { order: -1; }
+  .photo-frame { width: 260px; height: 315px; }
+}
+
+@media (max-width: 600px) {
+  #hero {
+    grid-template-columns: 1fr;
+    padding: 5.5rem 1.5rem 3rem;
+    gap: 2rem;
+    text-align: center;
+    min-height: auto;
+  }
+  .hero-photo { order: -1; justify-content: center; }
+  .photo-frame { width: 160px; height: 195px; margin: 0 auto; }
+  .photo-frame::after { display: none; }
+  h1 { font-size: 2.8rem; }
+  .hero-eyebrow { font-size: .7rem; }
+  .hero-desc { font-size: .9rem; }
+  .hero-ctas { justify-content: center; flex-direction: column; align-items: center; }
+}

@@ -1,0 +1,50 @@
+/* ── CERTIFICATIONS ── */
+#certifications { background: var(--off); max-width: 100%; padding: 6rem 0; }
+.cert-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+.cert-list { display: flex; flex-direction: column; }
+.cert-item {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--light);
+}
+.cert-item:first-child { border-top: 1px solid var(--light); }
+.cert-org {
+  font-size: .72rem;
+  color: var(--mid);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.cert-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--black);
+}
+.cert-desc {
+  font-size: .82rem;
+  color: var(--mid);
+  margin-top: .2rem;
+}
+.cert-status {
+  font-size: .68rem;
+  padding: .3rem .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.cert-status.active { background: var(--accent); color: white; }
+.cert-status.progress { background: var(--light); color: var(--dark); }
+.cert-status.planned { border: 1px solid var(--light); color: var(--mid); }
+
+@media (max-width: 900px) {
+  .cert-inner { padding: 0 2rem; }
+  .cert-item { grid-template-columns: 1fr; gap: .4rem; }
+}
+@media (max-width: 600px) {
+  .cert-inner { padding: 0 1.5rem; padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .cert-item { grid-template-columns: 1fr; gap: .4rem; padding: 1.4rem 0; }
+  .cert-status { align-self: flex-start; }
+}

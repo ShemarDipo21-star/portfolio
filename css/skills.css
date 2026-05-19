@@ -1,0 +1,47 @@
+/* ── SKILLS ── */
+.skills-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+.skill-col h3 {
+  font-size: .7rem;
+  font-weight: 400;
+  color: var(--mid);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--light);
+}
+.skill-entry {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1.2rem;
+}
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skill-name { font-size: .88rem; color: var(--dark); }
+.skill-pct { font-size: .72rem; color: var(--mid); }
+.skill-bar {
+  height: 1px;
+  background: var(--light);
+  position: relative;
+}
+.skill-fill {
+  position: absolute; top: 0; left: 0; height: 100%;
+  background: var(--black);
+  width: 0;
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+@media (max-width: 900px) {
+  .skills-cols { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 600px) {
+  .skills-cols { grid-template-columns: 1fr; gap: 2rem; }
+}
