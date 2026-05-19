@@ -28,10 +28,9 @@ nav {
   z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.1rem 4rem;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--white);
   border-bottom: 1px solid var(--light);
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
   height: 60px;
 }
 .nav-name {
@@ -163,9 +162,9 @@ footer {
     flex-direction: column;
     position: fixed;
     top: 60px; left: 0; right: 0;
-    background: rgba(255,255,255,.97);
-    backdrop-filter: blur(8px);
+    background: var(--white);
     border-bottom: 1px solid var(--light);
+    box-shadow: 0 4px 12px rgba(0,0,0,.07);
     padding: 1.5rem 2rem;
     gap: 1.2rem;
     transform: translateY(-110%);
