@@ -31,13 +31,15 @@ sections.forEach(s => sectionIO.observe(s));
 // Hamburger menu
 const burger = document.getElementById('navBurger');
 const menu = document.getElementById('navLinks');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  menu.classList.toggle('open');
-});
-menu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    burger.classList.remove('open');
-    menu.classList.remove('open');
+if (burger && menu) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
   });
-});
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+}
